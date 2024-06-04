@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from "react";
+import { db } from '../firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 
 function NewGameForm() {
@@ -23,7 +25,9 @@ function NewGameForm() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    await addDoc(collection(db, "BoardGames"), formData);
     console.log("submitted!", formData);
+    setFormData(initialFormData);
   }
 
   return (
