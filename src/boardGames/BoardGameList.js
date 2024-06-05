@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { listGames } from '../utils/Api';
+import BoardGameCard from './BoardGameCard';
 
 function BoardGameList() {
     const [loading, setLoading] = useState(true);
@@ -10,7 +11,7 @@ function BoardGameList() {
     function loadGames(){
         listGames()
         .then(setBoardGames)
-        .then((data)=>setLoading(false));
+        .then((data)=>{setLoading(false)});
         console.log("boardGames array is: ", boardGames);
     }
 
@@ -19,9 +20,11 @@ function BoardGameList() {
     }
     return (<>
         <div>BoardGameList</div>
-        {boardGames && boardGames.map((game)=>{
-            return <div key={game.id}>{game.name}</div>
-        })}
+        {boardGames && boardGames.map((game)=>
+            <div key={game.id}>
+                <BoardGameCard game={game} />
+            </div>
+        )}
         </>)
 }
 
