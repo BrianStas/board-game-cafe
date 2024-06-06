@@ -21,7 +21,7 @@ function BoardGameList() {
     return (<>
         <div>BoardGameList</div>
         {boardGames && boardGames.map((game)=>
-            <div key={game.id}>
+            <div key={game.id} className="grid grid-cols-1 my-6">
                 <BoardGameCard game={game} />
             </div>
         )}

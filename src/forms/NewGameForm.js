@@ -8,6 +8,7 @@ function NewGameForm() {
  
   const initialFormData = {
     name: "",
+    imgurl: "",
     min_players: 0,
     max_players: 0,
     complexity_level: 0,
@@ -58,6 +59,24 @@ function NewGameForm() {
 
         <div className="form-group mb-4">
           <label
+            htmlFor="imgurl"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Image URL
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="imgurl"
+            name="imgurl"
+            value={formData.imgurl}
+            onChange={handleInput}
+            required
+          />
+        </div>
+
+        <div className="form-group mb-4">
+          <label
             htmlFor="min_players"
             className="block text-gray-700 font-bold mb-2"
           >
@@ -70,6 +89,7 @@ function NewGameForm() {
             name="min_players"
             onChange={handleInput}
             value={formData.min_players}
+            required
           />
         </div>
 
@@ -87,7 +107,6 @@ function NewGameForm() {
             name="max_players"
             onChange={handleInput}
             value={formData.max_players}
-            required
           />
         </div>
 
