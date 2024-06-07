@@ -12,7 +12,12 @@ function NavBar() {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a>Homepage</a></li>
                 <li><a>Portfolio</a></li>
-                <li><a>About</a></li>
+                <li>
+                    <Link to={'/boardgames'}>Board Games</Link>
+                </li>
+                <li>
+                    <Link to={'/newgame'}>New Game Form</Link>
+                </li>
             </ul>
             </div>
         </div>
