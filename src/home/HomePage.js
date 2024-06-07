@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import NewGameForm from "../forms/NewGameForm";
 import { listGames } from "../utils/Api";
 import SearchBar from "../layout/SearchBar";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [boardGames, setBoardGames] = useState([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,9 +30,11 @@ export default function HomePage() {
                 <h1 className="mb-5 text-5xl font-bold">Welcome to The Action Phase!</h1>
                 <p className="mb-5">For food orders or a game leader, please ring the bell on your table!</p>
                 <SearchBar />
-                <div className="mt-5 flex items-center justify-center">
-                <button className="btn btn-primary mr-5 py-7 ">Game Library</button>
-                <button className="btn btn-primary">Order Food</button>
+                <div className="mt-10 flex items-center justify-around">
+                <button 
+                    className="btn btn-primary py-10 content-center"
+                    onClick={()=> navigate(`/boardgames`)}>Game Library</button>
+                <button className="btn btn-primary py-10 content-center">Order Food</button>
                 </div>
             </div>
         </div>
