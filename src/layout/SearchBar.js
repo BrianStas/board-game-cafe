@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import Select from 'react-select'
 
-function SearchBar() {
+function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
 
@@ -9,22 +10,24 @@ function SearchBar() {
         setSearchInput(e.target.value);
       };
 
+    const options = games.map((game) => {
+        return { value: game.name, label: game.name }
+    })
+
     return (
         <form className="flex justify-center">
             {/* <label htmlFor="search" className="">    */}
             <div className="flex w-3/4 max-w-md">
-                <input
+                <Select
                     id="search"
                     name="search"
-                    onChange={handleChange}
-                    value={searchInput}
-                    type="text"
+                    options={options}
                     placeholder="Find a Game..."
-                    className="input input-bordered flex-grow"
-                ></input>
+                    className="flex-grow"
+                />
             </div>
             {/* </label> */}
-            <button type="submit" className="btn btn-secondary glass ml-4">Search</button>
+            {/* <button type="submit" className="btn btn-secondary glass ml-4">Search</button> */}
         </form>
     )
 }

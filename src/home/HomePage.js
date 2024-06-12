@@ -29,8 +29,8 @@ export default function HomePage() {
             <div className="max-w-lg">
                 <h1 className="mb-5 text-5xl font-bold">Welcome to The Action Phase!</h1>
                 <p className="mb-5">For food orders or a game leader, please ring the bell on your table!</p>
-                <SearchBar />
-                <div className="mt-10 flex items-center justify-around">
+                <SearchBar games={boardGames} />
+                <div className="mt-10 flex justify-center space-x-10">
                 <button 
                     className="btn btn-primary py-10 content-center"
                     onClick={()=> navigate(`/boardgames`)}>Game Library</button>
