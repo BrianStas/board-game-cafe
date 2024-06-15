@@ -9,7 +9,7 @@ function BoardGameCard({game}) {
                 <h2 className="card-title justify-center">{game.name}</h2>
                 <p>{game.description}</p>
                 <div className="card-actions justify-end">
-                <button className="btn btn-primary">Learn To Play</button>
+                <button className="btn btn-secondary">Learn To Play</button>
             </div>
         </div>
         </div>
