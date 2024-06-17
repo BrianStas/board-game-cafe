@@ -9,6 +9,10 @@ function SearchBar({games}) {
         return { value: game.id, label: game.name }
     })
 
+    const clickHandler = () => {
+        console.log("search input click: ", searchInput)
+    }
+
     return (<div>
         <form className="flex justify-center">
             {/* <label htmlFor="search" className="">    */}
@@ -26,7 +30,7 @@ function SearchBar({games}) {
             {/* </label> */}
             {/* <button type="submit" className="btn btn-secondary glass ml-4">Search</button> */}
         </form>
-        <button className="btn btn-primary mt-5" onClick="">Learn to Play!</button>
+        <button className="btn btn-primary mt-5" onClick={clickHandler}>Learn to Play!</button>
         </div>
     )
 }
