@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../home/HomePage";
 import BoardGameList from "../boardGames/BoardGameList";
 import NewGameForm from "../forms/NewGameForm";
+import BoardGamePage from "../boardGames/BoardGamePage";
 
 
 function Routing() {
@@ -13,6 +14,7 @@ function Routing() {
 
       <Route path="/boardgames" element={<BoardGameList />} />
       <Route path="/newgame" element={<NewGameForm />} />
+      <Route path="/boardgames/:boardGame" element={<BoardGamePage />} />
       <Route path="/*" element={<HomePage />} />
       
     </Routes>
