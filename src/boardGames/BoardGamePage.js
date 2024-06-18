@@ -5,7 +5,7 @@ function BoardGamePage() {
 
     const location = useLocation();
 
-    const boardGameList = location.state.boardGames;
+    const boardGameList = location.state.games;
     
     const {boardGame} = useParams();
 
