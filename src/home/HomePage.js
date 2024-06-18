@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
-import NewGameForm from "../forms/NewGameForm";
 import { listGames } from "../utils/Api";
 import SearchBar from "../layout/SearchBar";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Select from 'react-select'
 
 export default function HomePage() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [boardGames, setBoardGames] = useState([]);
+    const [searchInput, setSearchInput] = useState("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(loadGames, []);
+
+    const options = boardGames.map((game) => {
+        return { value: game.id, label: game.name }
+    })
 
     function loadGames(){
         listGames()
         .then(setBoardGames)
         .then((data)=>{setLoading(false)});
         console.log("boardGames array is: ", boardGames);
+    }
+
+    const clickHandler = () => {
+        console.log("search input click: ", searchInput)
+        navigate(`/boardgames/${searchInput.value}`, {state: {boardGames}})
     }
 
     if(loading){
@@ -29,7 +39,25 @@ export default function HomePage() {
             <div className="max-w-lg">
                 <h1 className="mb-5 text-5xl font-bold">Welcome to The Action Phase!</h1>
                 <p className="mb-5">For food orders or a game leader, please ring the bell on your table!</p>
-                <SearchBar games={boardGames} />
+                <div>
+                    <form className="flex justify-center">
+                        {/* <label htmlFor="search" className="">    */}
+                        <div className="flex w-3/4 max-w-md">
+                            <Select
+                                id="search"
+                                name="search"
+                                options={options}
+                                placeholder="Find a Game..."
+                                className="flex-grow"
+                                onChange={(choice) =>{console.log("new choice: ", choice); setSearchInput(choice)}}
+                            />
+                        </div>
+                        
+                        {/* </label> */}
+                        {/* <button type="submit" className="btn btn-secondary glass ml-4">Search</button> */}
+                    </form>
+                    <button className="btn btn-primary mt-5" onClick={clickHandler}>Learn to Play!</button>
+                    </div>
                 <div className="mt-10 flex justify-center space-x-10">
                 <button 
                     className="btn btn-primary py-10 content-center"

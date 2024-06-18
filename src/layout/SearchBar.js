@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'
 
 function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
+    const navigate = useNavigate();
 
     const options = games.map((game) => {
         return { value: game.id, label: game.name }
@@ -11,6 +13,7 @@ function SearchBar({games}) {
 
     const clickHandler = () => {
         console.log("search input click: ", searchInput)
+        navigate(`/boardgames/${searchInput.value}`, {state: {games}})
     }
 
     return (<div>

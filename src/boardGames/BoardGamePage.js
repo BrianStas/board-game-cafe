@@ -1,12 +1,22 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
-function BoardGamePage({boardGames}) {
+function BoardGamePage() {
 
+    const location = useLocation();
+
+    const boardGameList = location.state.boardGames;
+    
     const {boardGame} = useParams();
 
+    const bgd = boardGameList.find((game)=> game.id === boardGame)
+    console.log("boardGameData: ", bgd);
+
+    // const boardGameData = boardGames.find((boardGame) => boardGame.id === boardGame)
+    // console.log("boardGameData: ", boardGameData);
+
     return (
-        <div>BoardGamePage</div>
+        <div>{bgd.name}</div>
     )
 }
 

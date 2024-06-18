@@ -13,8 +13,9 @@ function Routing() {
     <Routes>
 
       <Route path="/boardgames" element={<BoardGameList />} />
-      <Route path="/newgame" element={<NewGameForm />} />
       <Route path="/boardgames/:boardGame" element={<BoardGamePage />} />
+
+      <Route path="/newgame" element={<NewGameForm />} />      
       <Route path="/*" element={<HomePage />} />
       
     </Routes>
