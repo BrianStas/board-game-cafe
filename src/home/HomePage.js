@@ -40,6 +40,8 @@ export default function HomePage() {
                     className="btn btn-primary py-10 content-center"
                     onClick={()=> navigate(`/boardgames`)}>Game Library</button>
                 <button className="btn btn-primary py-10 content-center">Order Food</button>
+                <button className="btn btn-primary py-10 content-center"
+                onClick={()=> navigate(`/boardgames/addfields`, {state: {boardGames}})}>Add Fields</button>
                 </div>
             </div>
         </div>
