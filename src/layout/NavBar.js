@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 
 function NavBar() {
   return (
@@ -23,7 +23,7 @@ function NavBar() {
             </div>
         </div>
         <div className="navbar-center">
-            <a className="btn btn-ghost text-xl">Action Phase</a>
+            <a className="btn btn-ghost text-xl" href="/">Action Phase</a>
         </div>
         <div className="navbar-end">
             <button className="btn btn-ghost btn-circle">

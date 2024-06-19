@@ -27,7 +27,7 @@ function AddFields() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        // await addField(formData.game_id, formData.field_name, formData.field_value);
+        await addField(formData.game_id, formData.field_name, formData.field_value);
         console.log("submitted!", formData);
         setFormData(initialFormData);
     }
