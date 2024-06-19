@@ -1,4 +1,4 @@
-import { collection, getDocs, updateDoc } from "firebase/firestore";
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const gameCollection = 'BoardGames';
@@ -21,6 +21,6 @@ export async function listGames() {
 }
 
 export async function addField(id, field, value) {
-    const doc_ref = collection(db, gameCollection).doc(id);
+    const doc_ref = doc(db, gameCollection, id);
     await updateDoc(doc_ref, { [field]: value });
 }
