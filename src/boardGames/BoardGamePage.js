@@ -15,9 +15,18 @@ function BoardGamePage() {
     // const boardGameData = boardGames.find((boardGame) => boardGame.id === boardGame)
     // console.log("boardGameData: ", boardGameData);
 
-    return (
-        <div>{bgd.name}</div>
-    )
+    return (<div>
+        <h1>{bgd.name}</h1>
+        <iframe
+                src={bgd.ltp_url}
+                title={bgd.name}
+                width="400"
+                height="235"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+            ></iframe>
+        <p>{bgd.description}</p>
+    </div>)
 }
 
 export default BoardGamePage
