@@ -5,6 +5,7 @@ import BoardGameList from "../boardGames/BoardGameList";
 import NewGameForm from "../forms/NewGameForm";
 import BoardGamePage from "../boardGames/BoardGamePage";
 import AddFields from "../boardGames/AddFields";
+import NewMenuItemForm from "../forms/NewMenuItemForm";
 
 
 function Routing() {
@@ -17,7 +18,8 @@ function Routing() {
       <Route path="/boardgames/addfields" element={<AddFields />} />
       <Route path="/boardgames/:boardGame" element={<BoardGamePage />} />
 
-      <Route path="/newgame" element={<NewGameForm />} />      
+      <Route path="/newgame" element={<NewGameForm />} />  
+      <Route path="/newfood" element={<NewMenuItemForm />} />    
       <Route path="/*" element={<HomePage />} />
       
     </Routes>

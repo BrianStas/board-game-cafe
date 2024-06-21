@@ -19,6 +19,9 @@ function NavBar() {
                 <li>
                     <Link to={'/newgame'}>New Game Form</Link>
                 </li>
+                <li>
+                    <Link to={'/newfood'}>New Food Form</Link>
+                </li>
             </ul>
             </div>
         </div>
