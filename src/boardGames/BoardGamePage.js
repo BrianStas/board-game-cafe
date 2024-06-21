@@ -17,14 +17,14 @@ function BoardGamePage() {
 
     return (<div>
         <h1>{bgd.name}</h1>
-        <iframe
-                src={bgd.ltp_url}
-                title={bgd.name}
-                width="400"
-                height="235"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-            ></iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src={bgd.ltp_url} 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerPolicy="strict-origin-when-cross-origin" 
+        allowFullScreen></iframe>
         <p>{bgd.description}</p>
     </div>)
 }
