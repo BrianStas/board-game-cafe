@@ -14,6 +14,7 @@ function NewMenuItemForm() {
     category: ""
   };
   
+
   const [formData, setFormData] = useState(initialFormData);
 
   function handleInput(event) {
