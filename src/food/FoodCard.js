@@ -1,6 +1,8 @@
 import React from 'react'
 
 function FoodCard({food}) {
+
+  //this is just an update for the sake of updates
   return (
     <>
         <div className="card lg:card-side h-60 bg-base-100 shadow-xl card-bordered grid grid-cols-12 grid-rows-3 grid-flow-cols">
