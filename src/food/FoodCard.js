@@ -2,7 +2,11 @@ import React from 'react'
 
 function FoodCard({food}) {
 
-  //this is just an update for the sake of updates
+  
+  function clickHandler(){
+    
+  }
+
   return (
     <>
         <div className="card bg-base-100 w-64 shadow-xl text-center h-full">
