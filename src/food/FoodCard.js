@@ -1,7 +1,11 @@
 import React from 'react'
+import { useShoppingCart } from '../context/ShoppingCartContext'
 
 function FoodCard({food}) {
 
+  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart()
+
+const quantity = getItemQuantity(food.id)
   
   function clickHandler(){
     
@@ -15,7 +19,18 @@ function FoodCard({food}) {
                 <h2 className="card-title justify-center">{food.name}</h2>
                 <p>{food.description}</p>
                 <div className="card-actions justify-center">
-                  <button className="btn btn-secondary">Order</button>
+                  {quantity === 0 ? (
+                    <button className="btn btn-secondary" onClick={()=> increaseCartQuantity(food.id)}>Order</button>
+                  ) : <div className="d-flex align-items-center flex-column">
+                      <div className="d-flex align-items-center justify-content-center">
+                        <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
+                        <div>
+                        <span className="fs-3">{quantity}</span> in cart
+                        </div>
+                        <button className="btn btn-secondary" onClick={()=> increaseCartQuantity(food.id)}>+</button>
+                      </div>
+                      <button className="btn btn-danger" onClick={()=> removeFromCart(food.id)}>Remove</button>
+                    </div>}
                 </div>
             </div>
         </div>
