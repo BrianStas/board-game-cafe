@@ -3,7 +3,6 @@ import { listGames } from "../utils/Api";
 import SearchBar from "../layout/SearchBar";
 import { useNavigate } from "react-router-dom";
 
-
 export default function HomePage() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
