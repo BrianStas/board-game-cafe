@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { listGames } from "../utils/Api";
 import SearchBar from "../layout/SearchBar";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ export default function HomePage() {
         .then((data)=>{setLoading(false)});
         console.log("boardGames array is: ", boardGames);
     }
+
+    
 
 
 
