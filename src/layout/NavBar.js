@@ -38,7 +38,7 @@ function NavBar() {
             <button className="btn btn-ghost btn-circle">
             <div className="indicator">
             <ShoppingCart />
-            
+            {/* TODO: Sign-in button here with profile picture for those signed in */}
                 <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
             </button>
