@@ -21,7 +21,7 @@ const quantity = getItemQuantity(food.id)
                 <div className="card-actions justify-center">
                   {quantity === 0 ? (
                     <button className="btn btn-secondary" onClick={()=> increaseCartQuantity(food.id)}>Order</button>
-                  ) : <div className="d-flex align-items-center flex-column">
+                  ) : <div className="d-flex align-items-center">
                       <div className="d-flex align-items-center justify-content-center">
                         <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
                         <div>
