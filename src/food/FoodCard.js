@@ -5,6 +5,8 @@ function FoodCard({food}) {
 
   const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart()
 
+  // this is where code will go when I get motivated again. 
+
 const quantity = getItemQuantity(food.id)
   
   function clickHandler(){
