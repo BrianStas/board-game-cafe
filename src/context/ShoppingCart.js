@@ -1,6 +1,9 @@
 import React from 'react'
 
 function ShoppingCart() {
+
+  // need something up here
+
   return (
     <div className="drawer drawer-end">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
