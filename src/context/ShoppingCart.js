@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function ShoppingCart() {
-
+  [cartItems, setCartItems] = useState([])
   // need something up here
 
   return (
