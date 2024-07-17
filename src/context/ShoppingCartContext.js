@@ -10,6 +10,11 @@ export function useShoppingCart(){
 
 export function ShoppingCartProvider({children}){
     const [cartItems, setCartItems] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
+
+    const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
+    const openCart= () => setIsOpen(true)
+    const closeCart= () => setIsOpen(false)
 
     function getItemQuantity(id){
         return cartItems.find(item => item.id === id)?.quantity || 0
@@ -51,7 +56,15 @@ export function ShoppingCartProvider({children}){
         setCartItems(currItems => currItems.filter(item=>item.id!==id))
     }
 
-    return <ShoppingCartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
+    return <ShoppingCartContext.Provider value={{
+        getItemQuantity, 
+        increaseCartQuantity, 
+        decreaseCartQuantity, 
+        removeFromCart,
+        cartItems,
+        cartQuantity,
+        openCart,
+        closeCart}}>
         {children}
         <ShoppingCart />
         </ShoppingCartContext.Provider>
