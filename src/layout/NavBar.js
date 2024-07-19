@@ -41,7 +41,6 @@ function NavBar() {
             {cartQuantity > 0 && <button className="btn btn-ghost btn-circle" onClick={openCart}>
             <div className="indicator">
             <ShoppingCart />
-            {/* TODO: Sign-in button here with profile picture for those signed in */}
                 <span className="badge badge-s badge-primary indicator-item indicator-bottom indicator-start">{cartQuantity}</span>
             </div>
             </button>}
