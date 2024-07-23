@@ -6,6 +6,7 @@ const ShoppingCartContext= createContext({})
 
 export function useShoppingCart(){
     return useContext(ShoppingCartContext)
+    // i did my commit for the day
 }
 
 export function ShoppingCartProvider({children}){
