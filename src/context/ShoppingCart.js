@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function ShoppingCart() {
-
+  const {closeCart} = useShoppingCart()
   return (
     <div className="drawer drawer-end">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
