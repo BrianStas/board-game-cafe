@@ -1,12 +1,10 @@
 import { createContext, useContext, useState } from "react";
-import ShoppingCart from "./ShoppingCart";
 
 
 const ShoppingCartContext= createContext({})
 
 export function useShoppingCart(){
     return useContext(ShoppingCartContext)
-    // i did my commit for the day
 }
 
 export function ShoppingCartProvider({children}){
@@ -16,6 +14,7 @@ export function ShoppingCartProvider({children}){
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
     const openCart= () => setIsOpen(true)
     const closeCart= () => setIsOpen(false)
+    console.log("open status: ", isOpen)
 
     function getItemQuantity(id){
         return cartItems.find(item => item.id === id)?.quantity || 0
@@ -67,6 +66,5 @@ export function ShoppingCartProvider({children}){
         openCart,
         closeCart}}>
         {children}
-        <ShoppingCart />
         </ShoppingCartContext.Provider>
 }

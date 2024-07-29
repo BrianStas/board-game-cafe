@@ -32,6 +32,7 @@ function FoodHome() {
             <FoodCard food={food} />
         </div>
     )}
+    
     </div>
  </div> )
 }
