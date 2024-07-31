@@ -2,10 +2,11 @@ import React from 'react';
 import { Link, } from 'react-router-dom';
 import { SignUpWithGoogle } from '../utils/Authentication';
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import CartItem from '../food/CartItem';
 
 function NavBar() {
 
-    const { openCart, cartQuantity } = useShoppingCart();
+    const { openCart, cartQuantity, cartItems } = useShoppingCart();
 
   return (
     <div className="navbar bg-base-100">
@@ -53,9 +54,9 @@ function NavBar() {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-                    {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    {cartItems.map(item =>(
+                        <CartItem key={item.id} {...item} />
+                    ))}
                     </ul>
                 </div>
             </div>
