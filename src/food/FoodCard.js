@@ -7,9 +7,6 @@ function FoodCard({food}) {
 
 const quantity = getItemQuantity(food.id)
   
-  function clickHandler(){
-    
-  }
 
   return (
     <>
