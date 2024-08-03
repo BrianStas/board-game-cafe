@@ -16,33 +16,26 @@ export function ShoppingCartProvider({children}){
     const closeCart= () => setIsOpen(false)
     console.log("open status: ", isOpen)
 
-    async function addToCart(id){
-        const formData = {
-            quantity: 1,
-            itemId: id
+    async function addToCart(item){
+        const cartRef = db.collection('cart').doc(item.id);
+        const doc = await cartRef.get();
+      
+        if (doc.exists) {
+          // If the item is already in the cart, increase the quantity
+          cartRef.update({
+            quantity: firebase.firestore.FieldValue.increment(1)
+          });
+        } else {
+          // If the item is not in the cart, add it with quantity 1
+          cartRef.set({
+            ...item,
+            quantity: 1
+          });
         }
-        await addDoc(collection(db, "Cart"), formData);
-        console.log("submitted!", formData);
-    }
+      };
 
     function getItemQuantity(id){
         return cartItems.find(item => item.id === id)?.quantity || 0
-    }
-
-    function increaseCartQuantity(id){
-        setCartItems(currItems => {
-            if (currItems.find(item => item.id === id) == null){
-                return [...currItems, {id, quantity: 1}]
-            } else{
-                return currItems.map(item =>{
-                    if(item.id === id){
-                        return {...item, quantity: item.quantity++}
-                    }else{
-                        return item
-                    }
-                })
-            }
-        })
     }
 
     function decreaseCartQuantity(id){
@@ -67,7 +60,7 @@ export function ShoppingCartProvider({children}){
 
     return <ShoppingCartContext.Provider value={{
         getItemQuantity, 
-        increaseCartQuantity, 
+        addToCart, 
         decreaseCartQuantity, 
         removeFromCart,
         cartItems,
