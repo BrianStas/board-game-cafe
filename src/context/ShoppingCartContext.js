@@ -16,6 +16,15 @@ export function ShoppingCartProvider({children}){
     const closeCart= () => setIsOpen(false)
     console.log("open status: ", isOpen)
 
+    async function addToCart(id){
+        const formData = {
+            quantity: 1,
+            itemId: id
+        }
+        await addDoc(collection(db, "Cart"), formData);
+        console.log("submitted!", formData);
+    }
+
     function getItemQuantity(id){
         return cartItems.find(item => item.id === id)?.quantity || 0
     }
