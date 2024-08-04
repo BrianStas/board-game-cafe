@@ -38,21 +38,21 @@ export function ShoppingCartProvider({children}){
         return cartItems.find(item => item.id === id)?.quantity || 0
     }
 
-    function decreaseCartQuantity(id){
-        setCartItems(currItems => {
-            if (currItems.find(item => item.id === id)?.quantity === 1){
-                return currItems.filter(item=>item.id !==id)
-            } else{
-                return currItems.map(item =>{
-                    if(item.id === id){
-                        return {...item, quantity: item.quantity--}
-                    }else{
-                        return item
-                    }
-                })
-            }
-        })
-    }
+    async function decreaseCartQuantity(item) {
+        const cartRef = db.collection('cart').doc(item.id);
+        const doc = await cartRef.get();
+      
+        if (doc.exists) {
+          const currentQuantity = doc.data().quantity;
+          if (currentQuantity > 1) {
+            cartRef.update({
+              quantity: firebase.firestore.FieldValue.increment(-1)
+            });
+          } else {
+            cartRef.delete();
+          }
+        }
+      };
 
     function removeFromCart(id){
         setCartItems(currItems => currItems.filter(item=>item.id!==id))
