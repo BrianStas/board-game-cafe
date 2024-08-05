@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { db } from "../firebase";
+import { collection, doc, FieldValue, onSnapshot } from "firebase/firestore";
 
 
 const ShoppingCartContext= createContext({})
@@ -10,6 +12,13 @@ export function useShoppingCart(){
 export function ShoppingCartProvider({children}){
     const [cartItems, setCartItems] = useState([])
     const [isOpen, setIsOpen] = useState(false)
+    const cartRef= collection(db, 'cart')
+
+    useEffect(() => {
+      onSnapshot
+        
+        console.log("cart items: ", cartItems)
+    }, []);
 
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
     const openCart= () => setIsOpen(true)
@@ -17,17 +26,17 @@ export function ShoppingCartProvider({children}){
     console.log("open status: ", isOpen)
 
     async function addToCart(item){
-        const cartRef = db.collection('cart').doc(item.id);
-        const doc = await cartRef.get();
+        const itemRef = doc(db, 'cart', item.id);
+        const docRef = await itemRef.get();
       
-        if (doc.exists) {
+        if (docRef.exists) {
           // If the item is already in the cart, increase the quantity
-          cartRef.update({
-            quantity: firebase.firestore.FieldValue.increment(1)
+          await itemRef.update({
+            quantity: FieldValue.increment(1)
           });
         } else {
           // If the item is not in the cart, add it with quantity 1
-          cartRef.set({
+          itemRef.set({
             ...item,
             quantity: 1
           });
@@ -39,17 +48,17 @@ export function ShoppingCartProvider({children}){
     }
 
     async function decreaseCartQuantity(item) {
-        const cartRef = db.collection('cart').doc(item.id);
-        const doc = await cartRef.get();
+        const itemRef = doc(db, 'cart', item.id);
+        const docRef = await cartRef.get();
       
-        if (doc.exists) {
-          const currentQuantity = doc.data().quantity;
+        if (docRef.exists) {
+          const currentQuantity = docRef.data().quantity;
           if (currentQuantity > 1) {
-            cartRef.update({
-              quantity: firebase.firestore.FieldValue.increment(-1)
+            await itemRef.update({
+              quantity: FieldValue.increment(-1)
             });
           } else {
-            cartRef.delete();
+            itemRef.delete();
           }
         }
       };

@@ -6,7 +6,7 @@ import CartItem from '../food/CartItem';
 
 function NavBar() {
 
-    const { openCart, cartQuantity, cartItems } = useShoppingCart();
+    const { cartQuantity, cartItems } = useShoppingCart();
 
   return (
     <div className="navbar bg-base-100">
