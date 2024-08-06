@@ -3,9 +3,10 @@ import { useShoppingCart } from '../context/ShoppingCartContext'
 
 function FoodCard({food}) {
 
-  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart()
-
-const quantity = getItemQuantity(food.id)
+  const { addToCart, decreaseCartQuantity, removeFromCart, cartItems } = useShoppingCart()
+  
+  const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
+  const quantityInCart = cartItem ? cartItem.quantity : 0;
   
 
   return (
@@ -16,15 +17,15 @@ const quantity = getItemQuantity(food.id)
                 <h2 className="card-title justify-center">{food.name}</h2>
                 <p>{food.description}</p>
                 <div className="card-actions justify-center">
-                  {quantity === 0 ? (
-                    <button className="btn btn-secondary" onClick={()=> increaseCartQuantity(food.id)}>Order</button>
+                  {quantityInCart === 0 ? (
+                    <button className="btn btn-secondary" onClick={()=> addToCart(food.id)}>Order</button>
                   ) : <div className="d-flex align-items-center">
                       <div className="d-flex align-items-center justify-content-center">
                         <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
                         <div>
-                        <span className="fs-3">{quantity}</span> in cart
+                        <span className="fs-3">{quantityInCart}</span> in cart
                         </div>
-                        <button className="btn btn-secondary" onClick={()=> increaseCartQuantity(food.id)}>+</button>
+                        <button className="btn btn-secondary" onClick={()=> addToCart(food.id)}>+</button>
                       </div>
                       <button className="btn btn-danger" onClick={()=> removeFromCart(food.id)}>Remove</button>
                     </div>}

@@ -18,7 +18,9 @@ export const SignUpWithGoogle = async () => {
         }
         const token = credential.accessToken;
         const user = result.user;
-        console.log("signup returns user and token: ", user," ", token)
+        console.log("signup returns user and token: ", user," ", token);
+        console.log("uid is: ", user.uid)
+        localStorage.setItem("uid", user.uid);
        
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error) {
