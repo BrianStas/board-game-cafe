@@ -37,14 +37,14 @@ function NavBar() {
             <a className="btn btn-ghost text-xl" href="/">Action Phase</a>
         </div>
         <div className="navbar-end">
-            <button className="btn btn-ghost btn-circle" onClick={SignUpWithGoogle} >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <button className="btn btn-circle mr-2" onClick={SignUpWithGoogle} >
+            Sign In
             </button>
             <div className="drawer drawer-end w-12">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                 
-                    <label htmlFor="my-drawer-4" className="drawer-button btn "><svg
+                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-circle "><svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"
                     fill="currentColor"

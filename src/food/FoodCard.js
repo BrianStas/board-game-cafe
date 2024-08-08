@@ -20,14 +20,18 @@ function FoodCard({food}) {
                   {quantityInCart === 0 ? (
                     <button className="btn btn-secondary" onClick={()=> addToCart(food)}>Order</button>
                   ) : <div className="d-flex align-items-center">
-                      <div className="d-flex align-items-center justify-content-center">
-                        <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
+                      <div className="flex justify-between">
                         <div>
+                        <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
+                        </div>
+                        <div className="self-center mx-2">
                         <span className="fs-3">{quantityInCart}</span> in cart
                         </div>
+                        <div>
                         <button className="btn btn-secondary" onClick={()=> addToCart(food)}>+</button>
+                        </div>
                       </div>
-                      <button className="btn btn-danger" onClick={()=> removeFromCart(food)}>Remove</button>
+                      <button className="btn btn-danger mt-2" onClick={()=> removeFromCart(food)}>Remove</button>
                     </div>}
                 </div>
             </div>
