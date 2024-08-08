@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { db } from "../firebase";
-import { collection, deleteDoc, doc, FieldValue, getDoc, increment, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, FieldValue, getDoc, increment, limit, onSnapshot, query, setDoc, updateDoc } from "firebase/firestore";
 
 
 const ShoppingCartContext= createContext({})
@@ -33,19 +33,31 @@ export function ShoppingCartProvider({children}){
 
     async function addToCart(item){
       try{
-      const cartRef = doc(db, 'cart', item.id);
-      const docSnap = await getDoc(cartRef);
-      console.log("docSnap successfull: ", docSnap)
-    
-      if (docSnap.exists()) {
-        await updateDoc(cartRef, {
-          quantity: increment(1)
-        });
-      } else {
-        await setDoc(cartRef, {
+      console.log("in the try block");
+
+      const snapshot =query(collection(db, 'cart'), limit(1));
+      
+      if (snapshot.empty) {
+        console.log("empty snapshot")
+        await setDoc(doc(db, 'cart', item.id), {
           ...item,
           quantity: 1
         });
+      }else{
+        const cartRef = doc(db, 'cart', item.id);
+        const docSnap = await getDoc(cartRef);
+        console.log("docSnap successful: ", docSnap)
+      
+        if (docSnap.exists()) {
+          await updateDoc(cartRef, {
+            quantity: increment(1)
+          });
+        } else {
+          await setDoc(cartRef, {
+            ...item,
+            quantity: 1
+          });
+        }
       }}catch (err) {
         console.error("error increasing quantity: ", err);
       }

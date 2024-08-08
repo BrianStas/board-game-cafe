@@ -18,16 +18,16 @@ function FoodCard({food}) {
                 <p>{food.description}</p>
                 <div className="card-actions justify-center">
                   {quantityInCart === 0 ? (
-                    <button className="btn btn-secondary" onClick={()=> addToCart(food.id)}>Order</button>
+                    <button className="btn btn-secondary" onClick={()=> addToCart(food)}>Order</button>
                   ) : <div className="d-flex align-items-center">
                       <div className="d-flex align-items-center justify-content-center">
                         <button className="btn btn-secondary" onClick={()=> decreaseCartQuantity(food.id)}>-</button>
                         <div>
                         <span className="fs-3">{quantityInCart}</span> in cart
                         </div>
-                        <button className="btn btn-secondary" onClick={()=> addToCart(food.id)}>+</button>
+                        <button className="btn btn-secondary" onClick={()=> addToCart(food)}>+</button>
                       </div>
-                      <button className="btn btn-danger" onClick={()=> removeFromCart(food.id)}>Remove</button>
+                      <button className="btn btn-danger" onClick={()=> removeFromCart(food)}>Remove</button>
                     </div>}
                 </div>
             </div>
