@@ -35,14 +35,13 @@ export function ShoppingCartProvider({children}){
       try{
       const cartRef = doc(db, 'cart', item.id);
       const docSnap = await getDoc(cartRef);
+      console.log("docSnap successfull: ", docSnap)
     
       if (docSnap.exists()) {
-        // If the item is already in the cart, increase the quantity
         await updateDoc(cartRef, {
           quantity: increment(1)
         });
       } else {
-        // If the item is not in the cart, add it with quantity 1
         await setDoc(cartRef, {
           ...item,
           quantity: 1
