@@ -2,13 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Link, } from 'react-router-dom';
 import { SignUpWithGoogle } from '../utils/Authentication';
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import CartItem from '../food/CartItem';
+import { formatCurrency } from '../utils/formatCurrency';
 
 
 function NavBar() {
 
     
 
-    const { cartQuantity, cartItems } = useShoppingCart();
+    const { cartQuantity, cartItems, removeFromCart } = useShoppingCart();
+
+    function orderHandler(){
+        alert('Order placed successfully! See front desk to pick up.');
+        for(let item of cartItems){
+            removeFromCart(item);
+        }
+    }
 
   return (
     <div className="navbar bg-base-100">
@@ -53,17 +62,29 @@ function NavBar() {
                     <path d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z" />
                 </svg></label>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side z-50">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-                    {cartItems.map(item => (
-                        <li key={item.id}>
-                            <div>{item.name}</div>
-                            <div>{item.price}</div>
-                            <div>Quantity: {item.quantity}</div>
-                        </li>
-                    ))}
+                        {cartItems.length ? 
+                            <div>
+                                {cartItems.map(item => (
+                                    <li key={item.id}>
+                                        <CartItem item={item} />
+                                    </li>
+                                ))}
+                            </div>
+                             : 
+                        <li className="self-center">No items in cart.</li> }
+                        <div className="flex flex-col">
+                        <div className="ms-auto font-bold">
+                        Total: {formatCurrency(cartItems.reduce((total, cartItem) => total + (cartItem.price * cartItem.quantity), 0))}
+                        </div> 
+                        <button className="btn btn-primary mt-4" onClick={orderHandler}>Place Order</button>
+                        </div>
                     </ul>
+                    
+                    
+                 
                 </div>
             </div>
         </div>

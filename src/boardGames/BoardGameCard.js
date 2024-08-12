@@ -1,17 +1,18 @@
+import { ShowMore } from '@re-dev/react-truncate'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function BoardGameCard({game}) {
 
-  // update for the github heyyyy
   return (
     <>
-        <div className="card lg:card-side h-60 bg-base-100 shadow-xl card-bordered grid grid-cols-12 grid-rows-3 grid-flow-cols">
-            <figure className=" col-span-3 row-span-3"><img src={game.imgurl} alt="Movie" className='max-h-full object-contain' /></figure>
+        <div className="card lg:card-side h-fit bg-base-100 shadow-xl card-bordered grid grid-cols-12 grid-rows-3 grid-flow-cols mx-4">
+            <figure className=" col-span-3 row-span-3"><img src={game.imgurl} alt="Movie" className='h-60 object-contain' /></figure>
             <div className="card-body col-span-8 row-span-3">
                 <h2 className="card-title justify-center">{game.name}</h2>
-                <p>{game.description}</p>
+                <ShowMore lines={3}>{game.description}</ShowMore>
                 <div className="card-actions justify-end">
-                <button className="btn btn-secondary">Learn To Play</button>
+                <Link to={game.id} className="btn btn-primary">Learn To Play</Link>
             </div>
         </div>
         </div>

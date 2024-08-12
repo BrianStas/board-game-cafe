@@ -13,7 +13,7 @@ function SearchBar({games}) {
 
     const clickHandler = () => {
         console.log("search input click: ", searchInput)
-        navigate(`/boardgames/${searchInput.value}`, {state: {games}})
+        navigate(`/boardgames/${searchInput.value}`)
     }
 
     return (<div>

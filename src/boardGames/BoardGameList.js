@@ -20,9 +20,9 @@ function BoardGameList() {
     }
     return (<>
         <div>BoardGameList</div>
-        <div className="grid grid-cols-1 justify-items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {boardGames && boardGames.map((game)=>
-            <div key={game.id} className=" my-6 max-w-5xl">
+            <div key={game.id} className=" my-6 w-full">
                 <BoardGameCard game={game} />
             </div>
         )}
