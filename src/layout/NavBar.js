@@ -4,13 +4,19 @@ import { SignUpWithGoogle } from '../utils/Authentication';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import CartItem from '../food/CartItem';
 import { formatCurrency } from '../utils/formatCurrency';
+import { auth } from "../firebase";
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 function NavBar() {
 
-    
+    const [firebaseUserInfo, setFirebaseUserInfo] = useState(auth.currentUser);
+
+    useEffect(() => onAuthStateChanged(auth, setFirebaseUserInfo), []);
 
     const { cartQuantity, cartItems, removeFromCart } = useShoppingCart();
+
+    const displayName = firebaseUserInfo?.displayName || "Loading…";
 
     function orderHandler(){
         alert('Order placed successfully! See front desk to pick up.');
@@ -34,11 +40,14 @@ function NavBar() {
                     <Link to={'/boardgames'}>Board Games</Link>
                 </li>
                 <li>
+                    <Link to={'/food'}>Order Food</Link>
+                </li>
+                {/* <li>
                     <Link to={'/newgame'}>New Game Form</Link>
                 </li>
                 <li>
                     <Link to={'/newfood'}>New Food Form</Link>
-                </li>
+                </li> */}
             </ul>
             </div>
         </div>
@@ -46,9 +55,11 @@ function NavBar() {
             <a className="btn btn-ghost text-xl" href="/">Action Phase</a>
         </div>
         <div className="navbar-end">
-            <button className="btn btn-circle mr-2" onClick={SignUpWithGoogle} >
+            <div className="mr-4">
+            {firebaseUserInfo ? <p>Welcome, {displayName}</p> : <button className="btn btn-circle mr-2" onClick={SignUpWithGoogle} >
             Sign In
-            </button>
+            </button>}
+            </div>
             <div className="drawer drawer-end w-12">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
@@ -75,12 +86,15 @@ function NavBar() {
                             </div>
                              : 
                         <li className="self-center">No items in cart.</li> }
+                        {cartItems.length ? 
                         <div className="flex flex-col">
-                        <div className="ms-auto font-bold">
-                        Total: {formatCurrency(cartItems.reduce((total, cartItem) => total + (cartItem.price * cartItem.quantity), 0))}
-                        </div> 
-                        <button className="btn btn-primary mt-4" onClick={orderHandler}>Place Order</button>
-                        </div>
+                            <div className="ms-auto font-bold">
+                                Total: {formatCurrency(cartItems.reduce((total, cartItem) => total + (cartItem.price * cartItem.quantity), 0))}
+                            </div> 
+                            <button className="btn btn-primary mt-4" onClick={orderHandler}>Place Order</button> 
+                         </div>
+                         : null
+                        }
                     </ul>
                     
                     

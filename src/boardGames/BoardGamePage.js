@@ -23,7 +23,7 @@ function BoardGamePage() {
     // const boardGameData = boardGames.find((boardGame) => boardGame.id === boardGame)
     // console.log("boardGameData: ", boardGameData);
 
-    return (<div>
+    return (<div className="max-w-5xl mx-auto">
         <div className="flex justify-center">
         <iframe 
         width="560" 

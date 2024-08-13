@@ -29,6 +29,7 @@ export const SignUpWithGoogle = async () => {
         const errorMessage = error.message;
         const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error(errorMessage);
 
     }
   };
