@@ -20,7 +20,6 @@ function FoodHome() {
         return <div>Loading...</div>
     }
   return (<div>
-    <div>FoodHome</div>
     <div className="flex justify-center space-x-10 ">
         <button className="btn btn-primary">Main</button>
         <button className="btn btn-primary">Sides</button>

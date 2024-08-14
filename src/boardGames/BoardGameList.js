@@ -19,7 +19,6 @@ function BoardGameList() {
         return <div>Loading...</div>
     }
     return (<>
-        <div>BoardGameList</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {boardGames && boardGames.map((game)=>
             <div key={game.id} className=" my-6 w-full">
