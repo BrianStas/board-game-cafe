@@ -18,7 +18,7 @@ function SearchBar({games}) {
 
     return (<div>
         <form className="flex justify-center">
-            {/* <label htmlFor="search" className="">    */}
+           
             <div className="flex w-3/4 max-w-md">
                 <Select
                     id="search"
@@ -30,8 +30,6 @@ function SearchBar({games}) {
                 />
             </div>
             
-            {/* </label> */}
-            {/* <button type="submit" className="btn btn-secondary glass ml-4">Search</button> */}
         </form>
         <button className="btn btn-primary mt-5" onClick={clickHandler}>Learn to Play!</button>
         </div>
