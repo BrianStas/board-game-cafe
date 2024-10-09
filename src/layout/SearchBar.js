@@ -6,8 +6,7 @@ function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
-
-    // making a commit to fulfill my Github duties
+ 
 
     const options = games.map((game) => {
         return { value: game.id, label: game.name }
