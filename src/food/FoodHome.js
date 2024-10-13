@@ -15,7 +15,7 @@ function FoodHome() {
         console.log("menuItems array is: ", menuItems);
     }
 
-    //adding comment for commit. Working on private repo
+    
 
     if(loading){
         return <div>Loading...</div>
