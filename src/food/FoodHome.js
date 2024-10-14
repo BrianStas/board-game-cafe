@@ -15,7 +15,7 @@ function FoodHome() {
         console.log("menuItems array is: ", menuItems);
     }
 
-    
+    //CONFIRMING COMMIT FOR THE DAY
 
     if(loading){
         return <div>Loading...</div>
