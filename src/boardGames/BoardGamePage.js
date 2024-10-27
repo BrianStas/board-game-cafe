@@ -13,8 +13,6 @@ function BoardGamePage() {
        .then(data => setBgd(data))
     }
 
-    //need a commit before I start new products
-
     return (<div className="max-w-5xl mx-auto">
         <div className="flex justify-center">
         <iframe 
