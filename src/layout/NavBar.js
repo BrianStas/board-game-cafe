@@ -14,7 +14,7 @@ function NavBar() {
 
     useEffect(() => onAuthStateChanged(auth, setFirebaseUserInfo), []);
 
-    const { cartQuantity, cartItems, removeFromCart } = useShoppingCart();
+    const {  cartItems, removeFromCart } = useShoppingCart();
 
     const displayName = firebaseUserInfo?.displayName || "Loading…";
 

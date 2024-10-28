@@ -21,9 +21,6 @@ export default function HomePage() {
         console.log("boardGames array is: ", boardGames);
     }
 
-    //need to make my commit
-
-
 
     if(loading){
         return <div>Loading...</div>
