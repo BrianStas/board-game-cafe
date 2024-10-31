@@ -8,6 +8,8 @@ function FoodCard({food}) {
   
   const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
+
+  //commit for the day! Completed.
   
 
   return (
