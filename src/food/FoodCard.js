@@ -8,8 +8,6 @@ function FoodCard({food}) {
   
   const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
-  
-// watching dogs so can't make real commit but need green Github
 
   return (
     <>
