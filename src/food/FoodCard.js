@@ -9,7 +9,6 @@ function FoodCard({food}) {
   const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
 
-  //still working on my NDA project so I'm not getting my deserved credit on Github. That's why I keep making these changes.
 
   return (
     <>
