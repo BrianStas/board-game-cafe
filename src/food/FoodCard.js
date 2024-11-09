@@ -9,6 +9,7 @@ function FoodCard({food}) {
   const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
 
+  //this is my commit for Friday
 
   return (
     <>
