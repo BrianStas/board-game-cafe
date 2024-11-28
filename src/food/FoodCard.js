@@ -9,8 +9,6 @@ function FoodCard({food}) {
   const cartItem = cartItems.find(cartItem => cartItem.id === food.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
 
-  //The project may be nearing its end?
-
   return (
     <>
         <div className="card bg-base-100 w-64 shadow-xl text-center h-full">
