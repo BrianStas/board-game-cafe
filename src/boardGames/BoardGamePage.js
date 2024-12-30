@@ -3,6 +3,9 @@ import { useLocation, useParams } from 'react-router-dom'
 import { getGame } from '../utils/Api';
 
 function BoardGamePage() {
+
+    //this is for the dedicated game page
+
     const [bgd, setBgd] = useState({});
     
     const {boardGame} = useParams();

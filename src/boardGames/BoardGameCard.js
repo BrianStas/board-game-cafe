@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 function BoardGameCard({game}) {
 
+//this is the actual card display on lookup
+
   return (
     <>
         <div className="card lg:card-side h-fit bg-base-100 shadow-xl card-bordered grid grid-cols-12 grid-rows-3 grid-flow-cols mx-4">
