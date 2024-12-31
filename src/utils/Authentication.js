@@ -1,7 +1,7 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase";
 
-
+//code directly from firebase. Need to edit for variables unused.
 
 export const SignUpWithGoogle = async () => {
 
