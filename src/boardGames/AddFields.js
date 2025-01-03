@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Select from 'react-select'
 import { addField } from '../utils/Api';
 
+//this file is specifically for adding fields into the board game collection
+
 function AddFields() {
 
     const location = useLocation();
