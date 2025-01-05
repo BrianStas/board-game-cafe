@@ -8,10 +8,7 @@ import { addField } from '../utils/Api';
 function AddFields() {
 
     const location = useLocation();
-
-    // this is just for the commit today. Building games, but that stuff doesnt go to github
     
-
     const [searchInput, setSearchInput] = useState("");
 
     const initialFormData = {
