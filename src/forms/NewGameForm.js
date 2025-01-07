@@ -3,6 +3,7 @@ import { useState } from "react";
 import { db } from '../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 
+//this page is specifically for adding new board games but shouldn't be available to users
 
 function NewGameForm() {
  

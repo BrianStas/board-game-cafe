@@ -3,6 +3,7 @@ import { useState } from "react";
 import { db } from '../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 
+//this page is for adding menu items by admin
 
 function NewMenuItemForm() {
  
