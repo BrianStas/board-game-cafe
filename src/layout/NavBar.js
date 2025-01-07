@@ -7,6 +7,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from 'firebase/auth';
 
+// you'll find links to access new food and new game forms here
 
 function NavBar() {
 
