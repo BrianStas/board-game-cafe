@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { listFood } from '../utils/Api';
 import FoodCard from './FoodCard';
 
+
+//kicking the can until chingu gets moving
 function FoodHome() {
     const [loading, setLoading] = useState(true);
     const [menuItems, setMenuItems] = useState([]);
