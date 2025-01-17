@@ -5,8 +5,6 @@ import { addDoc, collection } from 'firebase/firestore';
 
 //this page is specifically for adding new board games but shouldn't be available to users
 
-//this is a comment
-
 function NewGameForm() {
  
   const initialFormData = {
