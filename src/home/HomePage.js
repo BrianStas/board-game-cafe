@@ -12,7 +12,7 @@ export default function HomePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(loadGames, []);
 
-
+    //comment removes a common bug that states there's an issue with the useEffect array
 
     function loadGames(){
         listGames()
