@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { listFood } from '../utils/Api';
 import FoodCard from './FoodCard';
 
+//this component is for the main food page, showing all items in the menu
 
 function FoodHome() {
     const [loading, setLoading] = useState(true);
