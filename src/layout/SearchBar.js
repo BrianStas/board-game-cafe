@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select'
 
+//react-select is a specific react library for this functionality
+
 function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
