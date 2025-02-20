@@ -4,8 +4,6 @@ import Select from 'react-select'
 
 //react-select is a specific react library for this functionality
 
-
-//new comment time
 function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
