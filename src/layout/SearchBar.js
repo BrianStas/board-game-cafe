@@ -4,6 +4,8 @@ import Select from 'react-select'
 
 //react-select is a specific react library for this functionality
 
+//waiting on the other project to merge my branch and then going back to that project.
+
 function SearchBar({games}) {
 
     const [searchInput, setSearchInput] = useState("");
