@@ -2,8 +2,6 @@ import React from 'react'
 import { useShoppingCart } from '../context/ShoppingCartContext'
 import { formatCurrency } from '../utils/formatCurrency'
 
-//it's me again
-
 function CartItem({ item }) {
     const { removeFromCart } = useShoppingCart()
     return (
