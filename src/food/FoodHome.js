@@ -4,7 +4,6 @@ import FoodCard from './FoodCard';
 
 //this component is for the main food page, showing all items in the menu
 
-//new projects, we'll see how the commits work
 
 function FoodHome() {
     const [loading, setLoading] = useState(true);
