@@ -4,6 +4,7 @@ import FoodCard from './FoodCard';
 
 //this component is for the main food page, showing all items in the menu
 
+//going real slow due to all the other stuff I want to do
 
 function FoodHome() {
     const [loading, setLoading] = useState(true);
