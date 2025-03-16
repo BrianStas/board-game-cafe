@@ -4,8 +4,6 @@ import FoodCard from './FoodCard';
 
 //this component is for the main food page, showing all items in the menu
 
-//adding to new project for actual money but the private contributions dont count
-
 function FoodHome() {
     const [loading, setLoading] = useState(true);
     const [menuItems, setMenuItems] = useState([]);
