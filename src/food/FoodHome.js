@@ -6,6 +6,7 @@ import FoodCard from './FoodCard';
 
 //TODO: Update shopping cart to be instanced per user. Also, design better
 
+//this is going well
 
 function FoodHome() {
     const [loading, setLoading] = useState(true);
