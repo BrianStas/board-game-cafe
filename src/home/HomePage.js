@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 //TODO: Find new button formats and real design elements
 
 
-//this is another comment
-
 export default function HomePage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
