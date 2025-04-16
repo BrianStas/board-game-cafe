@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 
 //TODO: Find new button formats and real design elements
 
-//testing out Github Copilot
-
 export default function HomePage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
