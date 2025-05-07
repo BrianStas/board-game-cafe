@@ -7,7 +7,7 @@ export default function BoardGamePage() {
   const [bgd, setBgd] = useState({});
   const { boardGame } = useParams();
 
-  //one time lie
+ //today, we work
 
   useEffect(() => {
     getGame(boardGame).then((data) => setBgd(data));
