@@ -5,7 +5,7 @@ import { formatCurrency } from '../utils/formatCurrency'
 function CartItem({ item }) {
     const { removeFromCart } = useShoppingCart()
 
-    //moving the ball one more time
+    //sticking to the mission
 
     return (
         <div className="flex items-center justify-between bg-base-200 rounded-xl p-4 shadow-sm mb-3">
