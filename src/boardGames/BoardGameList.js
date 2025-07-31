@@ -15,6 +15,8 @@ function BoardGameList() {
         console.log("boardGames array is: ", boardGames);
     }
 
+    //we move the rock
+
     if(loading){
         return <div>Loading...</div>
     }
