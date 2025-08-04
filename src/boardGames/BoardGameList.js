@@ -4,7 +4,6 @@ import BoardGameCard from './BoardGameCard';
 
 function BoardGameList() {
 
-    //got it done
     const [loading, setLoading] = useState(true);
     const [boardGames, setBoardGames] = useState([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -17,7 +16,6 @@ function BoardGameList() {
         console.log("boardGames array is: ", boardGames);
     }
 
-    //we move the rock
 
     if(loading){
         return <div>Loading...</div>
