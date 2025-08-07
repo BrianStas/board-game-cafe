@@ -19,6 +19,8 @@ function BoardGameList() {
 
     if(loading){
         return <div>Loading...</div>
+
+        //working on side
     }
     return (<>
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
