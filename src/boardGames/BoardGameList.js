@@ -9,6 +9,7 @@ function BoardGameList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(loadGames, []);
 
+//getting this done til weekend
 
     function loadGames(){
         listGames()
