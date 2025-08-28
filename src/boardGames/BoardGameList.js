@@ -16,6 +16,8 @@ function BoardGameList() {
         console.log("boardGames array is: ", boardGames);
     }
 
+    //this is now where i should stop
+
 
     if(loading){
         return <div>Loading...</div>
