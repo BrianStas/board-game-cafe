@@ -11,6 +11,8 @@ export default function BoardGamePage() {
     getGame(boardGame).then((data) => setBgd(data));
   }, [boardGame]);
 
+  //getting it done
+
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-4 py-16"
