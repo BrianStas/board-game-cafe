@@ -11,7 +11,6 @@ import FoodHome from "../food/FoodHome";
 
 function Routing() {
 
-
   return (
     <Routes>
 

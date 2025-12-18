@@ -1,22 +1,14 @@
 import React from "react";
-import Routing from "./Routing";
 import NavBar from "./NavBar";
+import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div>
-      <div className="flex flex-col min-h-screen">
-        <div>
-          <NavBar />
-        </div> 
-        
-        <main className="flex-1">
-          <Routing />
-        </main>
-        <div>
-            
-        </div>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <NavBar />
+      <main className="flex-1">
+        <Outlet />
+      </main>
     </div>
   );
 }

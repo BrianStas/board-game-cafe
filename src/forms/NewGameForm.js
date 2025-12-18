@@ -3,8 +3,6 @@ import { useState } from "react";
 import { db } from '../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 
-//this is a test comment to fix things
-
 function NewGameForm() {
  
   const initialFormData = {

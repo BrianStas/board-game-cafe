@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { db } from "../firebase";
 import { collection, deleteDoc, doc, FieldValue, getDoc, increment, limit, onSnapshot, query, setDoc, updateDoc } from "firebase/firestore";
 
+// this allows for state management across the app for just the shopping cart. It bypasses parent-child relationships
 
 const ShoppingCartContext= createContext({})
 
@@ -62,10 +63,6 @@ export function ShoppingCartProvider({children}){
         console.error("error increasing quantity: ", err);
       }
     };
-
-    // function getItemQuantity(id){
-    //     return cartItems.find(item => item.id === id)?.quantity || 0
-    // }
 
     async function decreaseCartQuantity(itemId){
       try{

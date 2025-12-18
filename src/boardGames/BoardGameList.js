@@ -3,6 +3,7 @@ import { listGames } from '../utils/Api';
 import BoardGameCard from './BoardGameCard';
 
 function BoardGameList() {
+
     const [loading, setLoading] = useState(true);
     const [boardGames, setBoardGames] = useState([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -18,6 +19,7 @@ function BoardGameList() {
     if(loading){
         return <div>Loading...</div>
     }
+    
     return (<>
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {boardGames && boardGames.map((game)=>
