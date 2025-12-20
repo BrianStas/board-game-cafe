@@ -9,6 +9,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 // you'll find links to access new food and new game forms here
 
+//comment
+
 function NavBar() {
 
     const [firebaseUserInfo, setFirebaseUserInfo] = useState(auth.currentUser);
