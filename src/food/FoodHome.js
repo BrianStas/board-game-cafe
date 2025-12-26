@@ -14,6 +14,8 @@ function FoodHome() {
     loadFood();
   }, []);
 
+//kicking a rock today
+
   function loadFood() {
     listFood()
       .then(setMenuItems)
