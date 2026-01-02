@@ -14,8 +14,6 @@ function FoodHome() {
     loadFood();
   }, []);
 
-//the holidays messed me up
-
   function loadFood() {
     listFood()
       .then(setMenuItems)
