@@ -10,7 +10,6 @@ function FoodHome() {
   const [menuItems, setMenuItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
 
-  //update coming
 
   useEffect(() => {
     loadFood();
