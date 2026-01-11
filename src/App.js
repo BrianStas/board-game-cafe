@@ -14,15 +14,17 @@ function App() {
     <ShoppingCartProvider>
       <div className="App">
         <Routes>
+          {/* Customer Routes - Uses Layout (NavBar) */}
           <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/boardgames" element={<BoardGamePage />} />
             <Route path="/boardgames/:boardGame" element={<BoardGamePage />} />
             <Route path="/food" element={<FoodHome />} />
-
-             {/* Admin Routes */}
-            <Route path="/admin/tables" element={<AdminTables />} />
-            <Route path="/admin/orders" element={<AdminOrders />} />
           </Route>
+          
+          {/* Admin Routes - No Layout (standalone pages) */}
+          <Route path="/admin/tables" element={<AdminTables />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
         </Routes>
       </div>
     </ShoppingCartProvider>
