@@ -7,6 +7,8 @@ function AddFields() {
 
     const location = useLocation();
     
+//nailing it
+
     const [searchInput, setSearchInput] = useState("");
 
     const initialFormData = {
