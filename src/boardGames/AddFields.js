@@ -6,8 +6,6 @@ import { addField } from '../utils/Api';
 function AddFields() {
 
     const location = useLocation();
-    
-//nailing it
 
     const [searchInput, setSearchInput] = useState("");
 
