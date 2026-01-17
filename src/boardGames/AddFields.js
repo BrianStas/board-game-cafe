@@ -22,6 +22,8 @@ function AddFields() {
         return { value: game.id, label: game.name }
     })
 
+//this comment is keeping my head in the game
+
     async function handleSubmit(event) {
         event.preventDefault();
         await addField(formData.game_id, formData.field_name, formData.field_value);
